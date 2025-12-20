@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Cpu, Zap, Layout, Server } from 'lucide-vue-next'
+import { Cpu, Zap, Layout } from 'lucide-vue-next'
 
 const tiers = [
   {
