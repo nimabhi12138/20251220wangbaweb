@@ -72,62 +72,60 @@ const guarantees = [
 </script>
 
 <template>
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">服务保障</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">我们的承诺，您的保障</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">我们不仅提供专业的技术服务，更提供完善的服务保障，让您无后顾之忧。</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">服务保障</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">我们的承诺，您的保障</p>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">我们不仅提供专业的技术服务，更提供完善的服务保障，让您无后顾之忧。</p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        <div 
-          v-for="guarantee in guarantees" 
-          :key="guarantee.title"
-          class="animate-on-scroll opacity-0 translate-y-10 bg-apple-gray rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-500"
-        >
-          <div class="w-14 h-14 rounded-2xl bg-apple-blue/10 flex items-center justify-center mb-6">
-            <component :is="guarantee.icon" class="w-7 h-7 text-apple-blue" />
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-apple-dark">{{ guarantee.title }}</h3>
-          <p class="text-gray-600 mb-4 leading-relaxed">{{ guarantee.desc }}</p>
-          <ul class="space-y-2">
-            <li 
-              v-for="(detail, index) in guarantee.details" 
-              :key="index"
-              class="flex items-start text-sm text-gray-600"
-            >
-              <span class="w-1.5 h-1.5 bg-apple-blue rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
-              <span>{{ detail }}</span>
-            </li>
-          </ul>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
+      <div 
+        v-for="guarantee in guarantees" 
+        :key="guarantee.title"
+        class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-[2.5rem] p-12 border border-gray-50 hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] transition-all duration-700"
+      >
+        <div class="w-16 h-16 rounded-2xl bg-apple-blue/5 flex items-center justify-center mb-10">
+          <component :is="guarantee.icon" class="w-7 h-7 text-apple-blue" />
         </div>
+        <h3 class="text-2xl font-semibold mb-6 text-apple-dark tracking-tight">{{ guarantee.title }}</h3>
+        <p class="text-gray-500 mb-8 leading-relaxed font-light text-lg">{{ guarantee.desc }}</p>
+        <ul class="space-y-4">
+          <li 
+            v-for="(detail, index) in guarantee.details" 
+            :key="index"
+            class="flex items-start text-gray-500 font-light"
+          >
+            <span class="w-1.5 h-1.5 bg-apple-blue/40 rounded-full mr-4 mt-2 flex-shrink-0"></span>
+            <span>{{ detail }}</span>
+          </li>
+        </ul>
       </div>
+    </div>
 
-      <!-- SLA 详细说明 -->
-      <div class="animate-on-scroll opacity-0 translate-y-10 bg-gradient-to-br from-apple-blue/5 to-blue-50 rounded-3xl p-12">
-        <h3 class="text-3xl font-semibold text-center mb-12 text-apple-dark">服务等级协议（SLA）详细说明</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-white rounded-2xl p-6">
-            <h4 class="font-semibold mb-4 text-apple-dark">系统可用性</h4>
-            <div class="text-4xl font-bold text-apple-blue mb-2">≥ 99.5%</div>
-            <p class="text-gray-600 text-sm">年度系统正常运行时间不低于 99.5%，确保业务连续性。</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6">
-            <h4 class="font-semibold mb-4 text-apple-dark">故障恢复时间</h4>
-            <div class="text-4xl font-bold text-apple-blue mb-2">≤ 4 小时</div>
-            <p class="text-gray-600 text-sm">一般故障在 4 小时内恢复，紧急故障 2 小时内恢复。</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6">
-            <h4 class="font-semibold mb-4 text-apple-dark">客户满意度</h4>
-            <div class="text-4xl font-bold text-apple-blue mb-2">≥ 95%</div>
-            <p class="text-gray-600 text-sm">定期客户满意度调查，持续改进服务质量。</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6">
-            <h4 class="font-semibold mb-4 text-apple-dark">问题解决率</h4>
-            <div class="text-4xl font-bold text-apple-blue mb-2">≥ 99%</div>
-            <p class="text-gray-600 text-sm">承诺 99% 的问题能够及时有效解决。</p>
-          </div>
+    <!-- SLA 详细说明：更简洁 -->
+    <div class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-[3rem] p-16 md:p-24 border border-gray-50 shadow-[0_40px_100px_rgba(0,0,0,0.03)]">
+      <h3 class="text-3xl font-semibold text-center mb-20 text-apple-dark tracking-tight">服务等级协议（SLA）详细说明</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="text-center p-10 bg-[#f5f5f7] rounded-[2rem]">
+          <div class="text-5xl md:text-6xl font-bold text-apple-blue mb-4 tracking-tighter">≥ 99.5%</div>
+          <h4 class="font-semibold mb-3 text-apple-dark text-lg">系统可用性</h4>
+          <p class="text-gray-500 font-light text-sm leading-relaxed">年度系统正常运行时间不低于 99.5%，确保业务连续性。</p>
+        </div>
+        <div class="text-center p-10 bg-[#f5f5f7] rounded-[2rem]">
+          <div class="text-5xl md:text-6xl font-bold text-apple-blue mb-4 tracking-tighter">≤ 4 小时</div>
+          <h4 class="font-semibold mb-3 text-apple-dark text-lg">故障恢复时间</h4>
+          <p class="text-gray-500 font-light text-sm leading-relaxed">一般故障在 4 小时内恢复，紧急故障 2 小时内恢复。</p>
+        </div>
+        <div class="text-center p-10 bg-[#f5f5f7] rounded-[2rem]">
+          <div class="text-5xl md:text-6xl font-bold text-apple-blue mb-4 tracking-tighter">≥ 95%</div>
+          <h4 class="font-semibold mb-3 text-apple-dark text-lg">客户满意度</h4>
+          <p class="text-gray-500 font-light text-sm leading-relaxed">定期客户满意度调查，持续改进服务质量。</p>
+        </div>
+        <div class="text-center p-10 bg-[#f5f5f7] rounded-[2rem]">
+          <div class="text-5xl md:text-6xl font-bold text-apple-blue mb-4 tracking-tighter">≥ 99%</div>
+          <h4 class="font-semibold mb-3 text-apple-dark text-lg">问题解决率</h4>
+          <p class="text-gray-500 font-light text-sm leading-relaxed">承诺 99% 的问题能够及时有效解决。</p>
         </div>
       </div>
     </div>

@@ -48,41 +48,33 @@ const steps = [
 </script>
 
 <template>
-  <section class="py-24 bg-[#f5f5f7]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">服务流程</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">从咨询到落地，全程无忧</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">我们提供标准化的服务流程，确保每个环节都专业、高效、可靠。</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">服务流程</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">从咨询到落地，全程无忧</p>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">我们提供标准化的服务流程，确保每个环节都专业、高效、可靠。</p>
+    </div>
 
-      <div class="relative">
-        <!-- 连接线（桌面端） -->
-        <div class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-apple-blue/30 to-transparent"></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div 
-            v-for="(step, index) in steps" 
-            :key="step.number"
-            class="animate-on-scroll opacity-0 translate-y-10 relative"
-            :style="{ 'animation-delay': `${index * 100}ms` }"
-          >
-            <div class="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500 h-full">
-              <div class="flex items-start justify-between mb-6">
-                <div :class="['w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold text-white', index % 2 === 0 ? 'bg-apple-blue' : 'bg-gray-400']">
-                  {{ step.number }}
-                </div>
-                <component :is="step.icon" class="w-8 h-8 text-gray-300" />
-              </div>
-              
-              <h3 class="text-2xl font-semibold mb-3 text-apple-dark">{{ step.title }}</h3>
-              <p class="text-gray-600 leading-relaxed mb-4">{{ step.desc }}</p>
-              
-              <div class="flex items-center text-sm text-apple-blue font-medium">
-                <span class="w-2 h-2 bg-apple-blue rounded-full mr-2"></span>
-                预计时长：{{ step.duration }}
-              </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div 
+        v-for="(step, index) in steps" 
+        :key="step.number"
+        class="animate-on-scroll opacity-0 translate-y-6"
+      >
+        <div class="bg-white rounded-[2.5rem] p-12 border border-gray-50 hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] transition-all duration-700 h-full group">
+          <div class="flex items-start justify-between mb-10">
+            <div :class="['w-20 h-20 rounded-[1.5rem] flex items-center justify-center text-3xl font-bold text-white shadow-lg', index % 2 === 0 ? 'bg-apple-blue' : 'bg-gray-400']">
+              {{ step.number }}
             </div>
+            <component :is="step.icon" class="w-8 h-8 text-gray-200 group-hover:text-apple-blue transition-colors" />
+          </div>
+          
+          <h3 class="text-2xl font-semibold mb-6 text-apple-dark tracking-tight">{{ step.title }}</h3>
+          <p class="text-gray-500 leading-relaxed font-light mb-8 text-lg">{{ step.desc }}</p>
+          
+          <div class="flex items-center text-sm text-apple-blue font-semibold uppercase tracking-widest">
+            <span class="w-2 h-2 bg-apple-blue rounded-full mr-3"></span>
+            {{ step.duration }}
           </div>
         </div>
       </div>

@@ -96,59 +96,55 @@ const cases = [
 </script>
 
 <template>
-  <section class="py-24 bg-[#f5f5f7]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">成功案例</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">真实案例，见证专业</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">以下是我们服务过的部分客户案例，每一个案例都是我们专业能力的体现。</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">成功案例</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">真实案例，见证专业</p>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">以下是我们服务过的部分客户案例，每一个案例都是我们专业能力的体现。</p>
+    </div>
 
-      <div class="space-y-12">
-        <div 
-          v-for="(caseItem, index) in cases" 
-          :key="index"
-          class="animate-on-scroll opacity-0 translate-y-10 bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-500"
-        >
-          <div class="flex items-start justify-between mb-6">
-            <div class="flex items-center space-x-4">
-              <div class="w-16 h-16 rounded-2xl bg-apple-blue/10 flex items-center justify-center">
-                <component :is="caseItem.icon" class="w-8 h-8 text-apple-blue" />
-              </div>
-              <div>
-                <div class="text-sm text-apple-blue font-semibold mb-1">{{ caseItem.type }}</div>
-                <h3 class="text-2xl font-semibold text-apple-dark">{{ caseItem.client }}</h3>
-                <p class="text-sm text-gray-500 mt-1">规模：{{ caseItem.scale }}</p>
-              </div>
+    <div class="space-y-16">
+      <div 
+        v-for="(caseItem, index) in cases" 
+        :key="index"
+        class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-[3rem] p-12 md:p-16 shadow-[0_30px_60px_rgba(0,0,0,0.04)] border border-gray-50 hover:shadow-[0_50px_100px_rgba(0,0,0,0.06)] transition-all duration-700"
+      >
+        <div class="flex items-start space-x-8 mb-12">
+          <div class="w-20 h-20 rounded-2xl bg-apple-blue/5 flex items-center justify-center flex-shrink-0">
+            <component :is="caseItem.icon" class="w-10 h-10 text-apple-blue" />
+          </div>
+          <div>
+            <div class="text-sm text-apple-blue font-semibold mb-2 uppercase tracking-widest">{{ caseItem.type }}</div>
+            <h3 class="text-3xl font-semibold text-apple-dark mb-2 tracking-tight">{{ caseItem.client }}</h3>
+            <p class="text-gray-400 font-light">{{ caseItem.scale }}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+          <div>
+            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">面临的挑战</h4>
+            <p class="text-gray-500 leading-relaxed font-light text-lg">{{ caseItem.challenge }}</p>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">解决方案</h4>
+            <p class="text-gray-500 leading-relaxed font-light text-lg">{{ caseItem.solution }}</p>
+          </div>
+        </div>
+
+        <div class="bg-[#f5f5f7] rounded-[2rem] p-10 mb-12">
+          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">实施效果</h4>
+          <p class="text-gray-600 leading-relaxed font-light text-lg mb-8">{{ caseItem.result }}</p>
+          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+            <div v-for="(value, key) in caseItem.metrics" :key="key" class="text-center">
+              <div class="text-3xl font-bold text-apple-blue mb-2 tracking-tighter">{{ value }}</div>
+              <div class="text-xs text-gray-400 uppercase tracking-widest font-semibold">{{ key }}</div>
             </div>
           </div>
+        </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3">面临的挑战</h4>
-              <p class="text-gray-600 leading-relaxed">{{ caseItem.challenge }}</p>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-3">解决方案</h4>
-              <p class="text-gray-600 leading-relaxed">{{ caseItem.solution }}</p>
-            </div>
-          </div>
-
-          <div class="bg-apple-gray rounded-2xl p-6 mb-6">
-            <h4 class="text-sm font-semibold text-gray-700 uppercase tracking-wider mb-4">实施效果</h4>
-            <p class="text-gray-600 leading-relaxed mb-4">{{ caseItem.result }}</p>
-            <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
-              <div v-for="(value, key) in caseItem.metrics" :key="key" class="text-center">
-                <div class="text-2xl font-bold text-apple-blue mb-1">{{ value }}</div>
-                <div class="text-xs text-gray-500 uppercase">{{ key }}</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="border-l-4 border-apple-blue pl-6">
-            <p class="text-gray-700 italic">"{{ caseItem.feedback }}"</p>
-            <p class="text-sm text-gray-500 mt-2">— {{ caseItem.client }} 负责人</p>
-          </div>
+        <div class="border-l-4 border-apple-blue pl-8">
+          <p class="text-xl text-gray-600 italic leading-relaxed font-light mb-4">"{{ caseItem.feedback }}"</p>
+          <p class="text-sm text-gray-400 font-light">— {{ caseItem.client }} 负责人</p>
         </div>
       </div>
     </div>
