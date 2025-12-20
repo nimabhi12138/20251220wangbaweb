@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Phone, Mail, MapPin, MessageSquare, Send } from 'lucide-vue-next'
+import { Phone, Mail } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const formData = ref({
@@ -69,152 +69,98 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <section id="contact" class="py-24 bg-[#f5f5f7]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">联系我们</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">让我们开始合作吧</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">填写下方表单，我们的专业顾问会在 24 小时内与您联系。</p>
+  <section id="contact" class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+      <!-- 文字导引 -->
+      <div class="animate-on-scroll opacity-0 translate-y-6">
+        <h2 class="text-lg font-semibold text-apple-blue mb-6 tracking-widest uppercase">联系我们</h2>
+        <p class="text-5xl md:text-7xl font-semibold tracking-tight text-white mb-10 leading-[1.1]">
+          准备好升级<br/>您的运维吗？
+        </p>
+        <p class="text-xl text-gray-400 font-light leading-relaxed mb-16 max-w-lg">
+          填写右侧表单，我们的资深技术专家将在 24 小时内为您制定专属的技术演进方案。
+        </p>
+        
+        <div class="space-y-10">
+          <div class="flex items-center space-x-6 group">
+            <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-apple-blue transition-all duration-500">
+              <Phone class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">专属热线</p>
+              <p class="text-xl text-white font-medium">400-888-6666</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-6 group">
+            <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-apple-blue transition-all duration-500">
+              <Mail class="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <p class="text-xs text-gray-500 uppercase tracking-widest mb-1">官方邮箱</p>
+              <p class="text-xl text-white font-medium">support@zhiwei.com</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- 联系表单 -->
-        <div class="animate-on-scroll opacity-0 translate-y-10 bg-white rounded-3xl p-8 shadow-sm">
-          <h3 class="text-2xl font-semibold mb-6 text-apple-dark">在线咨询</h3>
-          
-          <form @submit.prevent="handleSubmit" class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">姓名 <span class="text-red-500">*</span></label>
+      <!-- 联系表单 -->
+      <div class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-[3rem] p-12 md:p-16 shadow-2xl">
+        <form @submit.prevent="handleSubmit" class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">您的姓名</label>
               <input 
                 v-model="formData.name"
                 type="text"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all"
-                placeholder="请输入您的姓名"
+                class="w-full px-6 py-4 bg-[#f5f5f7] border-transparent rounded-2xl focus:bg-white focus:ring-2 focus:ring-apple-blue outline-none transition-all"
+                placeholder="张先生 / 李女士"
               />
-              <p v-if="errors.name" class="mt-1 text-sm text-red-500">{{ errors.name }}</p>
             </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">联系电话 <span class="text-red-500">*</span></label>
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">联系电话</label>
               <input 
                 v-model="formData.phone"
                 type="tel"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all"
-                placeholder="请输入手机号码"
+                class="w-full px-6 py-4 bg-[#f5f5f7] border-transparent rounded-2xl focus:bg-white focus:ring-2 focus:ring-apple-blue outline-none transition-all"
+                placeholder="138 **** ****"
               />
-              <p v-if="errors.phone" class="mt-1 text-sm text-red-500">{{ errors.phone }}</p>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">机构名称</label>
-              <input 
-                v-model="formData.cafeName"
-                type="text"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all"
-                placeholder="请输入机构/单位名称（选填）"
-              />
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">服务类型 <span class="text-red-500">*</span></label>
-              <select 
-                v-model="formData.serviceType"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all"
-              >
-                <option value="">请选择服务类型</option>
-                <option v-for="type in serviceTypes" :key="type" :value="type">{{ type }}</option>
-              </select>
-              <p v-if="errors.serviceType" class="mt-1 text-sm text-red-500">{{ errors.serviceType }}</p>
-            </div>
-
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">详细需求</label>
-              <textarea 
-                v-model="formData.message"
-                rows="4"
-                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-apple-blue focus:border-transparent transition-all resize-none"
-                placeholder="请描述您的具体需求..."
-              ></textarea>
-            </div>
-
-            <button 
-              type="submit"
-              :disabled="isSubmitting"
-              class="w-full py-4 bg-apple-blue text-white rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <Send v-if="!isSubmitting" class="w-5 h-5 mr-2" />
-              <span v-if="!isSubmitting">提交咨询</span>
-              <span v-else>提交中...</span>
-            </button>
-
-            <div 
-              v-if="submitSuccess"
-              class="p-4 bg-green-50 border border-green-200 rounded-xl text-green-700 text-center"
-            >
-              提交成功！我们会在 24 小时内与您联系。
-            </div>
-          </form>
-        </div>
-
-        <!-- 联系方式 -->
-        <div class="animate-on-scroll opacity-0 translate-y-10 space-y-8">
-          <div class="bg-white rounded-3xl p-8 shadow-sm">
-            <h3 class="text-2xl font-semibold mb-6 text-apple-dark">联系方式</h3>
-            
-            <div class="space-y-6">
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-apple-blue/10 flex items-center justify-center flex-shrink-0">
-                  <Phone class="w-6 h-6 text-apple-blue" />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-apple-dark mb-1">客服热线</h4>
-                  <a href="tel:400-888-6666" class="text-apple-blue hover:underline">400-888-6666</a>
-                  <p class="text-sm text-gray-500 mt-1">7x24 小时服务</p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-apple-blue/10 flex items-center justify-center flex-shrink-0">
-                  <MessageSquare class="w-6 h-6 text-apple-blue" />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-apple-dark mb-1">在线咨询</h4>
-                  <p class="text-gray-600">微信：zhiwei-tech</p>
-                  <p class="text-gray-600">QQ：123456789</p>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-apple-blue/10 flex items-center justify-center flex-shrink-0">
-                  <Mail class="w-6 h-6 text-apple-blue" />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-apple-dark mb-1">邮箱地址</h4>
-                  <a href="mailto:support@zhiwei.com" class="text-apple-blue hover:underline">support@zhiwei.com</a>
-                </div>
-              </div>
-
-              <div class="flex items-start space-x-4">
-                <div class="w-12 h-12 rounded-xl bg-apple-blue/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin class="w-6 h-6 text-apple-blue" />
-                </div>
-                <div>
-                  <h4 class="font-semibold text-apple-dark mb-1">公司地址</h4>
-                  <p class="text-gray-600">深圳市南山区科技园南区技术产业园 101 室</p>
-                </div>
-              </div>
             </div>
           </div>
 
-          <div class="bg-gradient-to-br from-apple-blue/5 to-blue-50 rounded-3xl p-8">
-            <h4 class="font-semibold text-apple-dark mb-4">工作时间</h4>
-            <div class="space-y-2 text-gray-600">
-              <p>周一至周日：24 小时服务</p>
-              <p>节假日：正常服务</p>
-              <p class="text-sm text-gray-500 mt-4">我们承诺，无论何时，您的技术问题都能得到及时响应。</p>
-            </div>
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">服务场景</label>
+            <select 
+              v-model="formData.serviceType"
+              class="w-full px-6 py-4 bg-[#f5f5f7] border-transparent rounded-2xl focus:bg-white focus:ring-2 focus:ring-apple-blue outline-none transition-all appearance-none"
+            >
+              <option value="">请选择应用场景</option>
+              <option v-for="type in serviceTypes" :key="type" :value="type">{{ type }}</option>
+            </select>
           </div>
-        </div>
+
+          <div class="space-y-2">
+            <label class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">详细需求</label>
+            <textarea 
+              v-model="formData.message"
+              rows="4"
+              class="w-full px-6 py-4 bg-[#f5f5f7] border-transparent rounded-2xl focus:bg-white focus:ring-2 focus:ring-apple-blue outline-none transition-all resize-none"
+              placeholder="请简单描述您的设备规模或当前痛点..."
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit"
+            :disabled="isSubmitting"
+            class="w-full py-6 bg-apple-blue text-white rounded-2xl font-bold text-lg hover:bg-blue-600 shadow-xl shadow-apple-blue/20 transition-all duration-500 disabled:opacity-50"
+          >
+            <span v-if="!isSubmitting">发送咨询请求</span>
+            <span v-else>正在传输...</span>
+          </button>
+
+          <p v-if="submitSuccess" class="text-center text-green-500 font-medium animate-pulse">
+            感谢您的信任，我们已收到您的请求。
+          </p>
+        </form>
       </div>
     </div>
   </section>

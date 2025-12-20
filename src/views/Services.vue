@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HardDrive, CloudLightning, Rocket, ShieldCheck, Clock, CheckCircle2 } from 'lucide-vue-next'
+import { HardDrive, CloudLightning, Rocket, ShieldCheck, Clock } from 'lucide-vue-next'
 
 const services = [
   {
@@ -110,53 +110,38 @@ const services = [
 </script>
 
 <template>
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-20 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">我们的专长</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark">全面覆盖集中管理每一个环节</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">服务核心</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark">专业、实时、闭环</p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div 
-          v-for="service in services" 
-          :key="service.title"
-          class="animate-on-scroll opacity-0 translate-y-10 group p-8 rounded-[2.5rem] bg-apple-gray hover:bg-white hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500"
-        >
-          <div :class="['w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110 duration-500', service.color]">
-            <component :is="service.icon" class="w-7 h-7" />
-          </div>
-          <h3 class="text-2xl font-semibold mb-4 text-apple-dark">{{ service.title }}</h3>
-          <p class="text-lg text-gray-500 leading-relaxed mb-6">
-            {{ service.desc }}
-          </p>
-          
-          <!-- 响应时间 -->
-          <div class="flex items-center mb-6 text-sm text-gray-600">
-            <Clock class="w-4 h-4 mr-2 text-apple-blue" />
-            <span class="font-medium">响应时间：{{ service.details.responseTime }}</span>
-          </div>
-
-          <!-- 服务内容 -->
-          <div class="mb-6">
-            <h4 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wider">服务内容</h4>
-            <ul class="space-y-2">
-              <li v-for="(item, idx) in service.details.services.slice(0, 3)" :key="idx" class="flex items-start text-sm text-gray-600">
-                <CheckCircle2 class="w-4 h-4 mr-2 mt-0.5 text-apple-blue flex-shrink-0" />
-                <span>{{ item }}</span>
-              </li>
-              <li class="text-sm text-apple-blue font-medium mt-2">+ 更多服务...</li>
-            </ul>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div 
+        v-for="service in services" 
+        :key="service.title"
+        class="animate-on-scroll opacity-0 translate-y-6 group p-12 rounded-[3rem] bg-white border border-gray-50 hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)] transition-all duration-700"
+      >
+        <div :class="['w-16 h-16 rounded-[1.25rem] flex items-center justify-center mb-10 shadow-sm transition-transform group-hover:scale-110 duration-700', service.color]">
+          <component :is="service.icon" class="w-8 h-8" />
+        </div>
+        <h3 class="text-3xl font-semibold mb-6 text-apple-dark tracking-tight">{{ service.title }}</h3>
+        <p class="text-xl text-gray-500 leading-relaxed font-light mb-10">
+          {{ service.desc }}
+        </p>
+        
+        <div class="space-y-10">
+          <!-- 核心指标 -->
+          <div class="flex items-center text-sm tracking-widest text-apple-blue font-semibold uppercase">
+            <Clock class="w-5 h-5 mr-3" />
+            {{ service.details.responseTime }}
           </div>
 
-          <!-- 服务流程 -->
-          <div class="pt-4 border-t border-gray-200">
-            <h4 class="text-sm font-semibold text-gray-700 mb-3 uppercase tracking-wider">服务流程</h4>
-            <div class="space-y-2">
-              <div v-for="(step, idx) in service.details.process.slice(0, 3)" :key="idx" class="flex items-start text-sm text-gray-600">
-                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-apple-blue/10 text-apple-blue flex items-center justify-center text-xs font-semibold mr-2 mt-0.5">{{ idx + 1 }}</span>
-                <span>{{ step }}</span>
-              </div>
+          <!-- 精选服务项 -->
+          <div class="grid grid-cols-1 gap-4">
+            <div v-for="(item, idx) in service.details.services.slice(0, 4)" :key="idx" class="flex items-center text-gray-600 font-light">
+              <div class="w-1.5 h-1.5 rounded-full bg-apple-blue/40 mr-4"></div>
+              {{ item }}
             </div>
           </div>
         </div>

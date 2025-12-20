@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronDown, ChevronUp } from 'lucide-vue-next'
+import { ChevronDown } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const faqCategories = [
@@ -81,12 +81,7 @@ const faqCategories = [
   }
 ]
 
-const openCategory = ref<string | null>(null)
 const openQuestion = ref<number | null>(null)
-
-const toggleCategory = (category: string) => {
-  openCategory.value = openCategory.value === category ? null : category
-}
 
 const toggleQuestion = (index: number) => {
   openQuestion.value = openQuestion.value === index ? null : index
@@ -94,65 +89,51 @@ const toggleQuestion = (index: number) => {
 </script>
 
 <template>
-  <section class="py-24 bg-[#f5f5f7]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">常见问题</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">您想了解的都在这里</p>
-        <p class="text-xl text-gray-500">如果还有疑问，欢迎随时联系我们。</p>
-      </div>
+  <section class="max-w-4xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">支持中心</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark">解答您的疑问</p>
+    </div>
 
-      <div class="space-y-4">
-        <div 
-          v-for="(category, catIndex) in faqCategories" 
-          :key="catIndex"
-          class="animate-on-scroll opacity-0 translate-y-10 bg-white rounded-2xl overflow-hidden border border-gray-100"
-        >
-          <button 
-            @click="toggleCategory(category.category)"
-            class="w-full px-6 py-4 flex items-center justify-between hover:bg-apple-gray transition-colors"
-          >
-            <h3 class="text-lg font-semibold text-apple-dark">{{ category.category }}</h3>
-            <ChevronDown 
-              v-if="openCategory !== category.category"
-              class="w-5 h-5 text-gray-400"
-            />
-            <ChevronUp 
-              v-else
-              class="w-5 h-5 text-gray-400"
-            />
-          </button>
-
+    <div class="space-y-6">
+      <div 
+        v-for="(category, catIndex) in faqCategories" 
+        :key="catIndex"
+        class="animate-on-scroll opacity-0 translate-y-6"
+      >
+        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-6 ml-4">{{ category.category }}</h3>
+        <div class="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm">
           <div 
-            v-show="openCategory === category.category"
-            class="px-6 pb-4 space-y-2"
+            v-for="(item, qIndex) in category.questions" 
+            :key="qIndex"
+            class="border-b border-gray-50 last:border-0"
           >
-            <div 
-              v-for="(item, qIndex) in category.questions" 
-              :key="qIndex"
-              class="border-b border-gray-100 last:border-0 pb-4 last:pb-0"
+            <button 
+              @click="toggleQuestion(catIndex * 100 + qIndex)"
+              class="w-full text-left px-8 py-8 flex items-center justify-between group hover:bg-gray-50 transition-colors"
             >
-              <button 
-                @click="toggleQuestion(catIndex * 100 + qIndex)"
-                class="w-full text-left flex items-start justify-between"
-              >
-                <span class="font-medium text-apple-dark pr-4">{{ item.q }}</span>
-                <ChevronDown 
-                  v-if="openQuestion !== catIndex * 100 + qIndex"
-                  class="w-5 h-5 text-gray-400 flex-shrink-0"
-                />
-                <ChevronUp 
-                  v-else
-                  class="w-5 h-5 text-gray-400 flex-shrink-0"
-                />
-              </button>
-              <p 
+              <span class="text-lg font-medium text-apple-dark pr-8">{{ item.q }}</span>
+              <ChevronDown 
+                :class="['w-5 h-5 text-gray-300 transition-transform duration-500', openQuestion === catIndex * 100 + qIndex ? 'rotate-180' : '']"
+              />
+            </button>
+            <Transition
+              enter-active-class="transition-[max-height,opacity] duration-500 ease-in-out"
+              enter-from-class="max-h-0 opacity-0"
+              enter-to-class="max-h-[500px] opacity-100"
+              leave-active-class="transition-[max-height,opacity] duration-300 ease-in-out"
+              leave-from-class="max-h-[500px] opacity-100"
+              leave-to-class="max-h-0 opacity-0"
+            >
+              <div 
                 v-show="openQuestion === catIndex * 100 + qIndex"
-                class="mt-3 text-gray-600 leading-relaxed"
+                class="overflow-hidden"
               >
-                {{ item.a }}
-              </p>
-            </div>
+                <div class="px-8 pb-10 text-gray-500 leading-relaxed font-light">
+                  {{ item.a }}
+                </div>
+              </div>
+            </Transition>
           </div>
         </div>
       </div>

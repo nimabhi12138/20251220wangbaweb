@@ -42,52 +42,26 @@ const scenarios = [
 </script>
 
 <template>
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">服务场景</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">覆盖各类集中管理场景</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">无论是网吧、电竞酒店、洗浴中心，还是学校、企业，我们都能提供专业的集中管理解决方案。</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">全场景覆盖</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">赋能每一个空间</p>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
+        从高能竞技场到沉浸式旅宿，从学术殿堂到商务楼宇，我们提供标准化的集中管理底座。
+      </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div 
-          v-for="scenario in scenarios" 
-          :key="scenario.title"
-          class="animate-on-scroll opacity-0 translate-y-10 group"
-        >
-          <div class="bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl hover:border-apple-blue/20 transition-all duration-500 h-full">
-            <div :class="['w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500', scenario.color]">
-              <component :is="scenario.icon" class="w-8 h-8 text-white" />
-            </div>
-            <h3 class="text-2xl font-semibold mb-4 text-apple-dark">{{ scenario.title }}</h3>
-            <p class="text-gray-600 leading-relaxed">{{ scenario.desc }}</p>
-          </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div 
+        v-for="scenario in scenarios" 
+        :key="scenario.title"
+        class="animate-on-scroll opacity-0 translate-y-6 group bg-white rounded-[2.5rem] p-10 border border-gray-50 hover:shadow-[0_30px_60px_rgba(0,0,0,0.04)] transition-all duration-700"
+      >
+        <div :class="['w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm', scenario.color]">
+          <component :is="scenario.icon" class="w-6 h-6 text-white" />
         </div>
-      </div>
-
-      <!-- 服务优势说明 -->
-      <div class="mt-16 animate-on-scroll opacity-0 translate-y-10">
-        <div class="bg-gradient-to-br from-apple-blue/5 to-blue-50 rounded-3xl p-12">
-          <h3 class="text-2xl font-semibold text-center mb-8 text-apple-dark">为什么选择我们的集中管理方案？</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="text-center">
-              <div class="text-3xl mb-3">🎯</div>
-              <h4 class="font-semibold mb-2 text-apple-dark">统一管理</h4>
-              <p class="text-sm text-gray-600">所有设备集中管理，远程维护，大幅降低运维成本。</p>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl mb-3">⚡</div>
-              <h4 class="font-semibold mb-2 text-apple-dark">快速响应</h4>
-              <p class="text-sm text-gray-600">7x24小时技术支持，5分钟内响应，确保业务不中断。</p>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl mb-3">🔒</div>
-              <h4 class="font-semibold mb-2 text-apple-dark">安全可靠</h4>
-              <p class="text-sm text-gray-600">完善的安全防护体系，数据多重备份，系统稳定运行。</p>
-            </div>
-          </div>
-        </div>
+        <h3 class="text-2xl font-semibold mb-4 text-apple-dark">{{ scenario.title }}</h3>
+        <p class="text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
       </div>
     </div>
   </section>

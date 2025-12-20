@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Star, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const testimonials = [
@@ -57,99 +57,88 @@ const prev = () => {
 </script>
 
 <template>
-  <section class="py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-        <h2 class="text-lg font-semibold text-apple-blue mb-2">客户评价</h2>
-        <p class="text-4xl md:text-5xl font-semibold tracking-tight text-apple-dark mb-4">客户说好，才是真的好</p>
-        <p class="text-xl text-gray-500 max-w-2xl mx-auto">98% 的客户满意度，来自每一位客户的真实反馈。</p>
-      </div>
+  <section class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
+      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">客户口碑</h2>
+      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">听听他们怎么说</p>
+    </div>
 
-      <div class="relative">
-        <!-- 轮播容器 -->
-        <div class="overflow-hidden rounded-3xl">
+    <div class="relative max-w-5xl mx-auto">
+      <!-- 轮播容器 -->
+      <div class="overflow-hidden rounded-[3rem] bg-white shadow-[0_40px_100px_rgba(0,0,0,0.03)] border border-gray-50">
+        <div 
+          class="flex transition-transform duration-1000 cubic-bezier(0.4, 0, 0.2, 1)"
+          :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+        >
           <div 
-            class="flex transition-transform duration-500 ease-in-out"
-            :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+            v-for="(testimonial, index) in testimonials" 
+            :key="index"
+            class="min-w-full px-12 py-20 md:px-24 md:py-32 flex flex-col items-center text-center"
           >
-            <div 
-              v-for="(testimonial, index) in testimonials" 
-              :key="index"
-              class="min-w-full px-4"
-            >
-              <div class="bg-apple-gray rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
-                <div class="flex items-center mb-6">
-                  <div class="w-16 h-16 rounded-full bg-apple-blue/10 flex items-center justify-center text-3xl mr-4">
-                    {{ testimonial.avatar }}
-                  </div>
-                  <div>
-                    <h4 class="text-xl font-semibold text-apple-dark">{{ testimonial.name }}</h4>
-                    <p class="text-sm text-gray-500">{{ testimonial.role }}</p>
-                  </div>
-                </div>
-                
-                <div class="flex items-center mb-4">
-                  <Star 
-                    v-for="i in testimonial.rating" 
-                    :key="i" 
-                    class="w-5 h-5 text-yellow-400 fill-yellow-400"
-                  />
-                </div>
-                
-                <p class="text-lg text-gray-700 leading-relaxed mb-4 italic">"{{ testimonial.comment }}"</p>
-                
-                <p class="text-sm text-gray-400">{{ testimonial.date }}</p>
+            <div class="text-5xl mb-10 opacity-20 text-apple-blue font-serif italic">“</div>
+            
+            <p class="text-2xl md:text-3xl text-apple-dark leading-snug font-medium mb-12 max-w-3xl">
+              {{ testimonial.comment }}
+            </p>
+            
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full bg-[#f5f5f7] flex items-center justify-center text-2xl mb-6 shadow-inner">
+                {{ testimonial.avatar }}
               </div>
+              <h4 class="text-xl font-semibold text-apple-dark mb-1">{{ testimonial.name }}</h4>
+              <p class="text-sm text-gray-400 font-light uppercase tracking-widest">{{ testimonial.role }}</p>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- 导航按钮 -->
+      <!-- 悬浮导航按钮 -->
+      <div class="absolute inset-y-0 -left-10 -right-10 hidden md:flex items-center justify-between pointer-events-none">
         <button 
           @click="prev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-apple-gray transition-colors"
+          class="w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center hover:bg-apple-blue hover:text-white transition-all duration-500 pointer-events-auto group"
         >
-          <ChevronLeft class="w-6 h-6 text-apple-dark" />
+          <ChevronLeft class="w-6 h-6 text-apple-dark group-hover:text-white" />
         </button>
         <button 
           @click="next"
-          class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-apple-gray transition-colors"
+          class="w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center hover:bg-apple-blue hover:text-white transition-all duration-500 pointer-events-auto group"
         >
-          <ChevronRight class="w-6 h-6 text-apple-dark" />
+          <ChevronRight class="w-6 h-6 text-apple-dark group-hover:text-white" />
         </button>
-
-        <!-- 指示器 -->
-        <div class="flex justify-center space-x-2 mt-8">
-          <button 
-            v-for="(_, index) in testimonials" 
-            :key="index"
-            @click="currentIndex = index"
-            :class="[
-              'w-2 h-2 rounded-full transition-all',
-              currentIndex === index ? 'bg-apple-blue w-8' : 'bg-gray-300'
-            ]"
-          />
-        </div>
       </div>
 
-      <!-- 统计数据 -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 animate-on-scroll opacity-0 translate-y-10">
-        <div class="text-center">
-          <div class="text-4xl font-bold text-apple-blue mb-2">98%</div>
-          <p class="text-sm text-gray-600">客户满意度</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-bold text-apple-blue mb-2">500+</div>
-          <p class="text-sm text-gray-600">服务客户</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-bold text-apple-blue mb-2">99.5%</div>
-          <p class="text-sm text-gray-600">系统稳定性</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-bold text-apple-blue mb-2">5分钟</div>
-          <p class="text-sm text-gray-600">平均响应时间</p>
-        </div>
+      <!-- 极简指示器 -->
+      <div class="flex justify-center space-x-4 mt-16">
+        <button 
+          v-for="(_, index) in testimonials" 
+          :key="index"
+          @click="currentIndex = index"
+          :class="[
+            'h-1.5 rounded-full transition-all duration-700',
+            currentIndex === index ? 'bg-apple-blue w-12' : 'bg-gray-200 w-4'
+          ]"
+        />
+      </div>
+    </div>
+
+    <!-- 数据指标：更干净的排版 -->
+    <div class="mt-40 grid grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 animate-on-scroll opacity-0 translate-y-6 max-w-6xl mx-auto">
+      <div class="flex flex-col items-center text-center group">
+        <div class="text-5xl md:text-6xl font-bold text-apple-dark mb-4 tracking-tighter group-hover:text-apple-blue transition-colors">98%</div>
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">客户满意度</p>
+      </div>
+      <div class="flex flex-col items-center text-center group">
+        <div class="text-5xl md:text-6xl font-bold text-apple-dark mb-4 tracking-tighter group-hover:text-apple-blue transition-colors">500+</div>
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">合作机构</p>
+      </div>
+      <div class="flex flex-col items-center text-center group">
+        <div class="text-5xl md:text-6xl font-bold text-apple-dark mb-4 tracking-tighter group-hover:text-apple-blue transition-colors">99.5%</div>
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">系统稳定性</p>
+      </div>
+      <div class="flex flex-col items-center text-center group">
+        <div class="text-5xl md:text-6xl font-bold text-apple-dark mb-4 tracking-tighter group-hover:text-apple-blue transition-colors">5min</div>
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em]">平均响应时间</p>
       </div>
     </div>
   </section>
