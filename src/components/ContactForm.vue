@@ -16,14 +16,33 @@ const submitSuccess = ref(false)
 const handleSubmit = async () => {
   if (!formData.value.name || !formData.value.phone) return
   isSubmitting.value = true
-  setTimeout(() => {
+  
+  try {
+    const response = await fetch('http://localhost:3001/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData.value),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      submitSuccess.value = true
+      setTimeout(() => {
+        submitSuccess.value = false
+        formData.value = { name: '', phone: '', serviceType: '', message: '' }
+      }, 3000)
+    } else {
+      alert('发送失败: ' + result.message);
+    }
+  } catch (error) {
+    console.error('发送请求失败:', error);
+    alert('发送咨询请求失败，请稍后重试。');
+  } finally {
     isSubmitting.value = false
-    submitSuccess.value = true
-    setTimeout(() => {
-      submitSuccess.value = false
-      formData.value = { name: '', phone: '', serviceType: '', message: '' }
-    }, 3000)
-  }, 1000)
+  }
 }
 </script>
 
