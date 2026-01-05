@@ -71,17 +71,27 @@ onMounted(() => {
       </section>
 
       <!-- Screen 3: Workflow & Advantages (Professionalism) -->
-      <section id="professional" class="snap-start min-h-screen py-24 flex flex-col justify-center bg-white px-6 overflow-y-auto">
+      <section id="professional" class="snap-start min-h-screen py-20 flex flex-col justify-center bg-white px-6 overflow-y-auto">
         <div class="max-w-7xl mx-auto w-full">
-          <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
-              专业流程与核心优势
-            </h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto">标准化的服务闭环，确保每一个环节都精准高效</p>
-          </div>
-          <div class="space-y-24">
-            <Workflow />
-            <Advantages />
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div class="animate-on-scroll opacity-0 translate-y-10">
+              <div class="mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+                  标准化服务流程
+                </h2>
+                <p class="text-gray-500 text-base">从初次咨询到最终落地，我们提供全程透明、高效的专业服务闭环。</p>
+              </div>
+              <Workflow />
+            </div>
+            <div class="animate-on-scroll opacity-0 translate-y-10 [transition-delay:200ms]">
+              <div class="mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+                  核心技术优势
+                </h2>
+                <p class="text-gray-500 text-base">十五年行业经验沉淀，打造稳定、安全、领先的技术运维护城河。</p>
+              </div>
+              <Advantages />
+            </div>
           </div>
         </div>
       </section>

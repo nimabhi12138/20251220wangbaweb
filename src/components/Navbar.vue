@@ -46,10 +46,10 @@ const navLinks = [
             {{ link.name }}
           </a>
           <a 
-            href="#contact" 
+            href="tel:+8615991141198" 
             class="px-6 py-2 bg-[#0066cc] text-white rounded-full text-sm font-bold hover:bg-[#0071e3] transition-all shadow-md shadow-blue-500/10"
           >
-            立即咨询
+            咨询热线
           </a>
         </div>
 

@@ -13,10 +13,13 @@ import { Monitor } from 'lucide-vue-next'
           <span class="text-sm font-bold tracking-tight text-[#1d1d1f]">智维技术运维</span>
         </div>
         
-        <div class="flex gap-8">
-          <a href="#" class="text-xs font-medium text-gray-400 hover:text-[#1d1d1f] transition-colors">隐私政策</a>
-          <a href="#" class="text-xs font-medium text-gray-400 hover:text-[#1d1d1f] transition-colors">服务条款</a>
-          <a href="#" class="text-xs font-medium text-gray-400 hover:text-[#1d1d1f] transition-colors">SLA 协议</a>
+        <div class="flex flex-col md:flex-row gap-6 md:gap-12 text-xs font-medium text-gray-400">
+          <a href="tel:+8615991141198" class="hover:text-[#1d1d1f] transition-colors flex items-center gap-2">
+            电话: +86 159 9114 1198
+          </a>
+          <a href="mailto:2982634855@qq.com" class="hover:text-[#1d1d1f] transition-colors flex items-center gap-2">
+            邮箱: 2982634855@qq.com
+          </a>
         </div>
 
         <p class="text-xs text-gray-400 font-light">

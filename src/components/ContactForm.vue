@@ -106,11 +106,11 @@ const handleSubmit = async () => {
       </button>
 
       <div class="flex items-center justify-center gap-8 pt-8 border-t border-gray-100">
-        <a href="tel:4008886666" class="flex items-center gap-2 text-sm text-gray-400 hover:text-[#0066cc] transition-colors font-medium">
-          <Phone class="w-4 h-4" /> 400-888-6666
+        <a href="tel:+8615991141198" class="flex items-center gap-2 text-sm text-gray-400 hover:text-[#0066cc] transition-colors font-medium">
+          <Phone class="w-4 h-4" /> +86 159 9114 1198
         </a>
-        <a href="mailto:support@zhiwei.com" class="flex items-center gap-2 text-sm text-gray-400 hover:text-[#0066cc] transition-colors font-medium">
-          <Mail class="w-4 h-4" /> support@zhiwei.com
+        <a href="mailto:2982634855@qq.com" class="flex items-center gap-2 text-sm text-gray-400 hover:text-[#0066cc] transition-colors font-medium">
+          <Mail class="w-4 h-4" /> 2982634855@qq.com
         </a>
       </div>
 

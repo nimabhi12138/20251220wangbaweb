@@ -12,13 +12,12 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'mail.spacemail.com',
   port: parseInt(process.env.SMTP_PORT || '465'),
-  secure: process.env.SMTP_USE_SSL === 'true', // true for 465, false for other ports
+  secure: true, // SSL/TLS
   auth: {
     user: process.env.SMTP_USERNAME || 'email@qshash.com',
     pass: process.env.SMTP_PASSWORD || 'Hh185115797.',
   },
   tls: {
-    // do not fail on invalid certs
     rejectUnauthorized: false
   }
 });
@@ -28,7 +27,7 @@ app.post('/api/send-email', async (req, res) => {
 
   const mailOptions = {
     from: process.env.SMTP_SENDER || 'email@qshash.com',
-    to: process.env.SMTP_SENDER || 'email@qshash.com', // 发送给自己
+    to: '2982634855@qq.com', // 发送给指定的 QQ 邮箱
     subject: `【官网新咨询】来自 ${name} 的咨询`,
     text: `
       姓名：${name}
