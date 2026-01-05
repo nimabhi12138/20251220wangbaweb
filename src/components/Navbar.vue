@@ -41,13 +41,13 @@ const navLinks = [
             v-for="link in navLinks" 
             :key="link.name" 
             :href="link.href"
-            class="text-base font-medium text-gray-500 hover:text-[#1d1d1f] transition-colors"
+            class="text-sm font-medium text-gray-500 hover:text-[#1d1d1f] transition-colors"
           >
             {{ link.name }}
           </a>
           <a 
             href="tel:+8615991141198" 
-            class="px-6 py-2 bg-[#0066cc] text-white rounded-full text-base font-bold hover:bg-[#0071e3] transition-all shadow-md shadow-blue-500/10"
+            class="px-6 py-2 bg-[#0066cc] text-white rounded-full text-sm font-bold hover:bg-[#0071e3] transition-all shadow-md shadow-blue-500/10"
           >
             咨询热线
           </a>

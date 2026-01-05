@@ -55,15 +55,15 @@ onMounted(() => {
       </section>
       
       <!-- Screen 2: Scenarios & Services (Solutions) -->
-      <section id="solutions" class="snap-start min-h-screen py-24 flex flex-col justify-center bg-[#f5f5f7] px-6 overflow-y-auto">
+      <section id="solutions" class="snap-start min-h-screen py-16 md:py-24 flex flex-col justify-center bg-[#f5f5f7] px-4 md:px-6 overflow-y-auto">
         <div class="max-w-7xl mx-auto w-full">
-          <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+          <div class="text-center mb-12 md:mb-16 animate-on-scroll opacity-0 translate-y-10 px-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
               全场景智慧运维解决方案
             </h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto">十五年深耕，为您的商业空间构建最坚实的技术底座</p>
+            <p class="text-sm md:text-lg text-gray-500 max-w-2xl mx-auto font-light">十五年深耕，为您的商业空间构建最坚实的技术底座</p>
           </div>
-          <div class="space-y-24">
+          <div class="space-y-16 md:space-y-24">
             <Scenarios />
             <Services />
           </div>
@@ -71,24 +71,24 @@ onMounted(() => {
       </section>
 
       <!-- Screen 3: Workflow & Advantages (Professionalism) -->
-      <section id="professional" class="snap-start min-h-screen py-20 flex flex-col justify-center bg-white px-6 overflow-y-auto">
+      <section id="professional" class="snap-start min-h-screen py-16 md:py-20 flex flex-col justify-center bg-white px-4 md:px-6 overflow-y-auto">
         <div class="max-w-7xl mx-auto w-full">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
             <div class="animate-on-scroll opacity-0 translate-y-10">
-              <div class="mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+              <div class="mb-8 md:mb-10">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
                   标准化服务流程
                 </h2>
-                <p class="text-gray-500 text-base">从初次咨询到最终落地，我们提供全程透明、高效的专业服务闭环。</p>
+                <p class="text-sm md:text-base text-gray-500 font-light">从初次咨询到最终落地，我们提供全程透明、高效的专业服务闭环。</p>
               </div>
               <Workflow />
             </div>
             <div class="animate-on-scroll opacity-0 translate-y-10 [transition-delay:200ms]">
-              <div class="mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+              <div class="mb-8 md:mb-10">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
                   核心技术优势
                 </h2>
-                <p class="text-gray-500 text-base">十五年行业经验沉淀，打造稳定、安全、领先的技术运维护城河。</p>
+                <p class="text-sm md:text-base text-gray-500 font-light">十五年行业经验沉淀，打造稳定、安全、领先的技术运维护城河。</p>
               </div>
               <Advantages />
             </div>
@@ -97,15 +97,15 @@ onMounted(() => {
       </section>
 
       <!-- Screen 4: Configuration & Case Studies (Evidence) -->
-      <section id="evidence" class="snap-start min-h-screen py-24 flex flex-col justify-center bg-[#f5f5f7] px-6 overflow-y-auto">
+      <section id="evidence" class="snap-start min-h-screen py-16 md:py-24 flex flex-col justify-center bg-[#f5f5f7] px-4 md:px-6 overflow-y-auto">
         <div class="max-w-7xl mx-auto w-full">
-          <div class="text-center mb-16 animate-on-scroll opacity-0 translate-y-10">
-            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
+          <div class="text-center mb-12 md:mb-16 animate-on-scroll opacity-0 translate-y-10 px-4">
+            <h2 class="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-[#1d1d1f]">
               配置方案与实战案例
             </h2>
-            <p class="text-gray-500 text-lg max-w-2xl mx-auto">因地制宜的硬件规划，经得起考验的实战积累</p>
+            <p class="text-sm md:text-lg text-gray-500 max-w-2xl mx-auto font-light">因地制宜的硬件规划，经得起考验的实战积累</p>
           </div>
-          <div class="space-y-24">
+          <div class="space-y-16 md:space-y-24">
             <ConfigSection />
             <CaseStudies />
           </div>

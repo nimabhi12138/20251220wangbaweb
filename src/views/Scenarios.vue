@@ -52,8 +52,8 @@ const scenarios = [
         <div :class="['w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500', scenario.color]">
           <component :is="scenario.icon" class="w-7 h-7 text-white" />
         </div>
-        <h3 class="text-2xl font-bold mb-4 text-[#1d1d1f]">{{ scenario.title }}</h3>
-        <p class="text-base text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
+        <h3 class="text-xl font-bold mb-2 text-[#1d1d1f] tracking-tight group-hover:text-[#0066cc] transition-colors">{{ scenario.title }}</h3>
+        <p class="text-sm text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
       </div>
     </div>
   </div>
