@@ -29,27 +29,38 @@ const navLinks = [
 <template>
   <nav 
     :class="[
-      'fixed top-0 w-full z-50 transition-all duration-300 border-b',
-      isScrolled ? 'glass py-2' : 'bg-transparent border-transparent py-4'
+      'fixed top-0 w-full z-50 transition-all duration-300',
+      isScrolled ? 'bg-cyber-dark/80 backdrop-blur-xl border-b border-white/10 py-2' : 'bg-transparent py-4'
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-12">
         <!-- Logo -->
-        <div class="flex items-center space-x-2">
-          <Monitor class="w-6 h-6 text-apple-dark" />
-          <span class="text-xl font-semibold tracking-tight">智维网吧</span>
+        <div class="flex items-center space-x-3 group cursor-pointer">
+          <div class="w-10 h-10 bg-cyber-blue rounded-lg flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,242,255,0.6)] transition-all">
+            <Monitor class="w-6 h-6 text-black" />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black tracking-tighter text-white uppercase leading-none">ZhiWei</span>
+            <span class="text-[10px] text-cyber-blue font-bold tracking-[0.3em] uppercase leading-none mt-1">Maintenance</span>
+          </div>
         </div>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8">
+        <div class="hidden md:flex items-center space-x-10">
           <a 
             v-for="link in navLinks" 
             :key="link.name" 
             :href="link.href"
-            class="text-sm font-medium text-apple-text/80 hover:text-apple-text transition-colors"
+            class="text-xs font-bold text-gray-400 hover:text-cyber-blue tracking-widest uppercase transition-colors"
           >
             {{ link.name }}
+          </a>
+          <a 
+            href="#contact" 
+            class="px-6 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-black text-white hover:bg-cyber-blue hover:text-black transition-all"
+          >
+            START PROJECT
           </a>
         </div>
 

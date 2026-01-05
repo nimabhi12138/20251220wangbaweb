@@ -3,67 +3,24 @@ import { Phone, Mail, MapPin, MessageSquare } from 'lucide-vue-next'
 </script>
 
 <template>
-  <footer id="contact" class="bg-apple-gray pt-24 pb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        <!-- Brand -->
-        <div class="space-y-6">
-          <h3 class="text-2xl font-semibold tracking-tight">智维网吧维护</h3>
-          <p class="text-gray-500 leading-relaxed">
-            致力于为网吧、电竞酒店、洗浴中心、学校、企业等各类集中管理场景提供最专业、最可靠的技术支持服务。您的稳定，我们的追求。
-          </p>
-          <div class="flex space-x-4">
-            <a href="#" class="p-2 bg-white rounded-full text-gray-400 hover:text-apple-blue transition-colors">
-              <MessageSquare class="w-5 h-5" />
-            </a>
+  <footer class="py-12 border-t border-white/5 bg-black/40">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-cyber-blue/20 rounded flex items-center justify-center border border-cyber-blue/30">
+            <Monitor class="w-4 h-4 text-cyber-blue" />
           </div>
+          <span class="text-sm font-black tracking-tighter text-white uppercase italic">ZhiWei Tech</span>
+        </div>
+        
+        <div class="flex gap-8">
+          <a href="#" class="text-[10px] font-bold text-gray-500 hover:text-white transition-colors tracking-widest uppercase">Privacy</a>
+          <a href="#" class="text-[10px] font-bold text-gray-500 hover:text-white transition-colors tracking-widest uppercase">Terms</a>
+          <a href="#" class="text-[10px] font-bold text-gray-500 hover:text-white transition-colors tracking-widest uppercase">SLA</a>
         </div>
 
-        <!-- Services -->
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-6">核心业务</h4>
-          <ul class="space-y-4 text-gray-500">
-            <li><a href="#" class="hover:text-apple-blue transition-colors">本地故障排除</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">远程系统优化</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">无盘系统部署</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">网络架构设计</a></li>
-          </ul>
-        </div>
-
-        <!-- Support -->
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-6">技术支持</h4>
-          <ul class="space-y-4 text-gray-500">
-            <li><a href="#" class="hover:text-apple-blue transition-colors">7x24小时报修</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">开业技术顾问</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">硬件升级方案</a></li>
-            <li><a href="#" class="hover:text-apple-blue transition-colors">防病毒安全策略</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-          <h4 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-6">联系我们</h4>
-          <ul class="space-y-4">
-            <li class="flex items-center space-x-3 text-gray-500">
-              <Phone class="w-5 h-5 text-apple-blue" />
-              <span>400-888-6666</span>
-            </li>
-            <li class="flex items-center space-x-3 text-gray-500">
-              <Mail class="w-5 h-5 text-apple-blue" />
-              <span>support@zhiwei.com</span>
-            </li>
-            <li class="flex items-center space-x-3 text-gray-500">
-              <MapPin class="w-5 h-5 text-apple-blue" />
-              <span>深圳市南山区科技园南区技术产业园 101 室</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pt-8 border-t border-gray-200 text-center">
-        <p class="text-xs text-gray-400">
-          © 2025 智维网吧维护有限公司. 保留所有权利. | 粤 ICP 备 2024001234 号
+        <p class="text-[10px] text-gray-600 font-mono tracking-tighter">
+          © 2026 ZHIWEI_TECH_MAINTENANCE_SYSTEM. ALL_RIGHTS_RESERVED. [V2.0.4]
         </p>
       </div>
     </div>

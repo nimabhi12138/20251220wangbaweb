@@ -96,58 +96,36 @@ const cases = [
 </script>
 
 <template>
-  <section class="max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-32 animate-on-scroll opacity-0 translate-y-6">
-      <h2 class="text-lg font-semibold text-apple-blue mb-4 tracking-widest uppercase">成功案例</h2>
-      <p class="text-5xl md:text-6xl font-semibold tracking-tight text-apple-dark mb-8">真实案例，见证专业</p>
-      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">以下是我们服务过的部分客户案例，每一个案例都是我们专业能力的体现。</p>
-    </div>
-
-    <div class="space-y-16">
+  <div class="space-y-6">
+    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+      <div class="w-1 h-6 bg-cyber-blue"></div>
+      实战案例
+    </h2>
+    <div class="space-y-4">
       <div 
-        v-for="(caseItem, index) in cases" 
+        v-for="(caseItem, index) in cases.slice(0, 3)" 
         :key="index"
-        class="animate-on-scroll opacity-0 translate-y-6 bg-white rounded-[3rem] p-12 md:p-16 shadow-[0_30px_60px_rgba(0,0,0,0.04)] border border-gray-50 hover:shadow-[0_50px_100px_rgba(0,0,0,0.06)] transition-all duration-700"
+        class="animate-on-scroll opacity-0 translate-y-6 bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/10 transition-all"
       >
-        <div class="flex items-start space-x-8 mb-12">
-          <div class="w-20 h-20 rounded-2xl bg-apple-blue/5 flex items-center justify-center flex-shrink-0">
-            <component :is="caseItem.icon" class="w-10 h-10 text-apple-blue" />
-          </div>
-          <div>
-            <div class="text-sm text-apple-blue font-semibold mb-2 uppercase tracking-widest">{{ caseItem.type }}</div>
-            <h3 class="text-3xl font-semibold text-apple-dark mb-2 tracking-tight">{{ caseItem.client }}</h3>
-            <p class="text-gray-400 font-light">{{ caseItem.scale }}</p>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          <div>
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">面临的挑战</h4>
-            <p class="text-gray-500 leading-relaxed font-light text-lg">{{ caseItem.challenge }}</p>
-          </div>
-          <div>
-            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-4">解决方案</h4>
-            <p class="text-gray-500 leading-relaxed font-light text-lg">{{ caseItem.solution }}</p>
-          </div>
-        </div>
-
-        <div class="bg-[#f5f5f7] rounded-[2rem] p-10 mb-12">
-          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-[0.2em] mb-6">实施效果</h4>
-          <p class="text-gray-600 leading-relaxed font-light text-lg mb-8">{{ caseItem.result }}</p>
-          <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-            <div v-for="(value, key) in caseItem.metrics" :key="key" class="text-center">
-              <div class="text-3xl font-bold text-apple-blue mb-2 tracking-tighter">{{ value }}</div>
-              <div class="text-xs text-gray-400 uppercase tracking-widest font-semibold">{{ key }}</div>
+        <div class="flex justify-between items-start mb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-cyber-blue/20 flex items-center justify-center text-cyber-blue">
+              <component :is="caseItem.icon" class="w-4 h-4" />
             </div>
+            <h3 class="font-bold text-white">{{ caseItem.client }}</h3>
           </div>
+          <span class="text-[10px] px-2 py-0.5 rounded-full bg-cyber-blue/10 text-cyber-blue border border-cyber-blue/20 uppercase">
+            {{ caseItem.type }}
+          </span>
         </div>
-
-        <div class="border-l-4 border-apple-blue pl-8">
-          <p class="text-xl text-gray-600 italic leading-relaxed font-light mb-4">"{{ caseItem.feedback }}"</p>
-          <p class="text-sm text-gray-400 font-light">— {{ caseItem.client }} 负责人</p>
+        <div class="grid grid-cols-3 gap-2">
+          <div v-for="(value, key) in caseItem.metrics" :key="key" class="bg-black/20 p-2 rounded-lg text-center">
+            <div class="text-cyber-blue text-sm font-bold">{{ value }}</div>
+            <div class="text-[8px] text-gray-500 uppercase tracking-tighter">{{ key }}</div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
