@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 const testimonials = [
@@ -24,8 +23,6 @@ const testimonials = [
 ]
 
 const currentIndex = ref(0)
-const next = () => { currentIndex.value = (currentIndex.value + 1) % testimonials.length }
-const prev = () => { currentIndex.value = (currentIndex.value - 1 + testimonials.length) % testimonials.length }
 </script>
 
 <template>
@@ -68,4 +65,5 @@ const prev = () => { currentIndex.value = (currentIndex.value - 1 + testimonials
     </div>
   </div>
 </template>
+
 

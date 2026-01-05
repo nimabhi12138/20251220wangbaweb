@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Building2, Hotel, Store, Waves, GraduationCap, Briefcase } from 'lucide-vue-next'
+import { Building2, Hotel, Store } from 'lucide-vue-next'
 
 const cases = [
   {
