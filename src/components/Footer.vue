@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Phone, Mail, MapPin, MessageSquare } from 'lucide-vue-next'
+import { Monitor } from 'lucide-vue-next'
 </script>
 
 <template>
