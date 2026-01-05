@@ -53,10 +53,10 @@ const steps = [
           {{ step.number }}
         </div>
         <div class="flex-1 pb-4">
-          <h3 class="text-lg font-bold text-[#1d1d1f] mb-1 flex items-center gap-2">
+          <h3 class="text-xl font-bold text-[#1d1d1f] mb-2 flex items-center gap-2 tracking-tight">
             {{ step.title }}
           </h3>
-          <p class="text-sm text-gray-500 leading-relaxed font-light">{{ step.desc }}</p>
+          <p class="text-base text-gray-500 leading-relaxed font-light">{{ step.desc }}</p>
         </div>
       </div>
     </div>

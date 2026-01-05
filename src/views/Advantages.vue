@@ -51,8 +51,8 @@ const advantages = [
       <div :class="['w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110', advantage.color]">
         <component :is="advantage.icon" class="w-5 h-5" />
       </div>
-      <h3 class="text-base font-bold text-[#1d1d1f] mb-2">{{ advantage.title }}</h3>
-      <p class="text-xs text-gray-500 leading-relaxed font-light">{{ advantage.desc }}</p>
+      <h3 class="text-xl font-bold text-[#1d1d1f] mb-2">{{ advantage.title }}</h3>
+      <p class="text-base text-gray-500 leading-relaxed font-light">{{ advantage.desc }}</p>
     </div>
   </div>
 </template>

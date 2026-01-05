@@ -53,7 +53,7 @@ const scenarios = [
           <component :is="scenario.icon" class="w-7 h-7 text-white" />
         </div>
         <h3 class="text-2xl font-bold mb-4 text-[#1d1d1f]">{{ scenario.title }}</h3>
-        <p class="text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
+        <p class="text-base text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
       </div>
     </div>
   </div>

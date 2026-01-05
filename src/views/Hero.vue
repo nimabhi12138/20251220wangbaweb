@@ -42,8 +42,8 @@ import { ChevronRight } from 'lucide-vue-next'
         <p class="text-xs text-gray-400 uppercase tracking-widest font-medium">合作机构</p>
       </div>
       <div class="animate-on-scroll opacity-0 translate-y-10 [transition-delay:100ms]">
-        <p class="text-4xl md:text-5xl font-bold text-[#0066cc] mb-2 tracking-tight">15Y</p>
-        <p class="text-xs text-gray-400 uppercase tracking-widest font-medium">行业经验</p>
+        <p class="text-4xl md:text-5xl font-bold text-[#0066cc] mb-2 tracking-tight">15年</p>
+        <p class="text-sm text-gray-400 uppercase tracking-widest font-medium">行业经验</p>
       </div>
       <div class="animate-on-scroll opacity-0 translate-y-10 [transition-delay:200ms]">
         <p class="text-4xl md:text-5xl font-bold text-[#1d1d1f] mb-2 tracking-tight">24/7</p>
