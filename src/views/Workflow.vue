@@ -45,7 +45,7 @@ const steps = [
   <div class="max-w-4xl mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
       <div 
-        v-for="(step, index) in steps" 
+        v-for="step in steps" 
         :key="step.number"
         class="animate-on-scroll opacity-0 translate-y-10 flex items-start gap-6 group"
       >
