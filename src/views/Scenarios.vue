@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Building2, Hotel, GraduationCap, Briefcase, Waves, Network } from 'lucide-vue-next'
+import { Building2, Hotel, Waves, GraduationCap, Briefcase, Network } from 'lucide-vue-next'
 
 const scenarios = [
   {
@@ -42,20 +42,19 @@ const scenarios = [
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="grid grid-cols-2 gap-4">
+  <div class="space-y-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div 
         v-for="scenario in scenarios" 
         :key="scenario.title"
-        class="animate-on-scroll opacity-0 translate-y-6 group bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-cyber-blue/50 transition-all duration-500"
+        class="animate-on-scroll opacity-0 translate-y-10 group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-500"
       >
-        <div :class="['w-10 h-10 rounded-xl bg-gradient-to-br flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500', scenario.color]">
-          <component :is="scenario.icon" class="w-5 h-5 text-white" />
+        <div :class="['w-14 h-14 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500', scenario.color]">
+          <component :is="scenario.icon" class="w-7 h-7 text-white" />
         </div>
-        <h3 class="text-lg font-bold mb-2 text-white">{{ scenario.title }}</h3>
-        <p class="text-xs text-gray-400 leading-relaxed">{{ scenario.desc }}</p>
+        <h3 class="text-2xl font-bold mb-4 text-[#1d1d1f]">{{ scenario.title }}</h3>
+        <p class="text-gray-500 leading-relaxed font-light">{{ scenario.desc }}</p>
       </div>
     </div>
   </div>
 </template>
-

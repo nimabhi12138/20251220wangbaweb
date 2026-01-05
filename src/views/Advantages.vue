@@ -42,22 +42,19 @@ const advantages = [
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="grid grid-cols-1 gap-4">
-      <div 
-        v-for="advantage in advantages.slice(0, 4)" 
-        :key="advantage.title"
-        class="animate-on-scroll opacity-0 translate-y-6 flex items-start gap-4 bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10"
-      >
-        <div :class="['w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br flex items-center justify-center', advantage.color]">
-          <component :is="advantage.icon" class="w-5 h-5 text-white" />
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div 
+      v-for="advantage in advantages" 
+      :key="advantage.title"
+      class="animate-on-scroll opacity-0 translate-y-10 group"
+    >
+      <div class="bg-white rounded-[2.5rem] p-10 border border-gray-100 hover:shadow-2xl transition-all duration-700 h-full">
+        <div :class="['w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-700 shadow-sm', advantage.color]">
+          <component :is="advantage.icon" class="w-7 h-7 text-white" />
         </div>
-        <div>
-          <h3 class="text-lg font-bold text-white mb-1">{{ advantage.title }}</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">{{ advantage.desc }}</p>
-        </div>
+        <h3 class="text-2xl font-bold mb-4 text-[#1d1d1f] tracking-tight">{{ advantage.title }}</h3>
+        <p class="text-gray-500 leading-relaxed font-light">{{ advantage.desc }}</p>
       </div>
     </div>
   </div>
 </template>
-

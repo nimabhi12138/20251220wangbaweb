@@ -8,10 +8,17 @@ export default {
     extend: {
       colors: {
         cyber: {
-          blue: '#00f2ff',
+          blue: '#0066cc',
           purple: '#7000ff',
           dark: '#050505',
           card: '#0a0a0b',
+          light: {
+            bg: '#fbfbfd',
+            card: '#ffffff',
+            text: '#1d1d1f',
+            gray: '#86868b',
+            accent: '#0071e3'
+          }
         },
         apple: {
           blue: '#0066cc',
